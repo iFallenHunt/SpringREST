@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Column;
-//import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -34,9 +33,11 @@ public class TaskModel {
 
     // 2 - aqui eu defini que quem é responsavel pela excessao é quem esta chamando
     // o metodo title
+    // 2 - here I defined that the caller is responsible for the exception
+    // the title method
     public void setTitle(String title) throws Exception {
         if (title.length() > 50) {
-            // 1 - aqui eu criei a excessao
+            // 1 - aqui eu criei a excessao - // 1 - here I created the exception
             throw new Exception("O Campo title deve conter no máximo 50 caracteres");
         }
         this.title = title;

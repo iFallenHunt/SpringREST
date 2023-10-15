@@ -21,6 +21,8 @@ public class UserModel {
 
     // @Column(name = "usuario") caso queira nomear cada coluna com um nome
     // especifico
+    // @Column(name = "user") if you want to name each column with a name
+    // specific
     @Column(unique = true)
     private String username;
     private String name;

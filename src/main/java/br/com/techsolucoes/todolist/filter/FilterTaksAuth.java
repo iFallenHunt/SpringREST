@@ -27,7 +27,7 @@ public class FilterTaksAuth extends OncePerRequestFilter {
         var servletPath = request.getServletPath();
 
         if (servletPath.startsWith("/task/")) {
-            // Pegar a autenticação (Usuario e senha)
+            // Pega a autenticação (Usuario e senha) - // Get authentication (User and password)
             var authorization = request.getHeader("Authorization");
 
             var authEncoded = authorization.substring("Basic".length()).trim();
@@ -41,15 +41,15 @@ public class FilterTaksAuth extends OncePerRequestFilter {
             String username = credentials[0];
             String password = credentials[1];
 
-            // Vaidar usuario
+            // Vaidar usuario - // Validate user
             var user = this.userRepository.findByUsername(username);
             if (user == null) {
                 response.sendError(401);
             } else {
-                // validar senha
+                // validar senha - // validate password
                 var passwordVerify = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword());
                 if (passwordVerify.verified) {
-                    // segue viagem
+                    // segue viagem - // on your way
                     request.setAttribute("idUser", user.getId());
                     filterChain.doFilter(request, response);
                 } else {
