@@ -1,5 +1,5 @@
 # SpringREST
-api rest using spring
+API Rest using Spring Boot
 
 This project was done using: Java 17, maven, VS Code and the Rest Client API Dog
 
