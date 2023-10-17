@@ -15,11 +15,42 @@ and edit tasks
 
 only through the login of the creating user.
 
-the api is working via the link [API Online](https://todolist-spring-rest.onrender.com)
+### HOW TO USE
 
-paste it into your API manager and use it 
+You must paste the link and insert it into your API manager `https://todolist-spring-rest.onrender.com`.
 
-### Settings
+<img src="img\api1.png" width="400">
+
+enter /user for user registration or /task for task management
+
+<img src="img\api2.png" width="400"> <img src="img\api3.png" width="400">
+
+the entire writing pattern can be found within the code
+
+here's an example 
+
+### User registration
+
+{
+    "name": "user test",
+    "username": "test",
+    "password": "1234"
+}
+
+### Task registration
+
+{
+    "description":"HOW TO USE",
+    "title":"README.md",
+    "priority":"NORMAL",
+    "startAt":"2023-10-18T15:00:00",
+    "endAt":"2023-10-20T15:59:00"    
+}
+
+
+
+
+### SETTINGS
 
 the configuration of the java extensions are 
 
@@ -44,7 +75,7 @@ The configuration used in spring initializr was
 - JAR packaging
 - Java 17
  
-### Dependencies
+### DEPENDENCIES
 
 - Spring Web
 - Spring Boot development tools
