@@ -22,7 +22,7 @@ public class UserContoller {
         var user = this.userRepository.findByUsername(userModel.getUsername());
 
         if (user != null) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuario ja existe");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuario ja existe / User already exists");
         }
 
         var passwordHashred = BCrypt.withDefaults().hashToString(12, userModel.getPassword().toCharArray());
