@@ -27,7 +27,6 @@ public class TaskController {
 
     @PostMapping("/")
     public ResponseEntity create(@RequestBody TaskModel taskModel, HttpServletRequest request) {
-        System.out.println("Chegou no controller");
         var idUser = request.getAttribute("idUser");
         taskModel.setIdUser((UUID) idUser);
 
@@ -36,12 +35,12 @@ public class TaskController {
         // 10/10/2023 - startAt
         if (currentDate.isAfter(taskModel.getStartAt()) || currentDate.isAfter(taskModel.getEndAt())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body("A data de inicio / data de termino deve ser maior que a data atual");
+                    .body("A data de inicio / data de termino deve ser maior que a data atual / The start date-end date must be greater than the current date");
         }
 
         if (taskModel.getStartAt().isAfter(taskModel.getEndAt())) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body("A data de inicio deve ser menor do que a data de término");
+                    .body("A data de inicio deve ser menor do que a data de término / The start date must be shorter than the end date");
         }
 
         var task = this.taskRepository.save(taskModel);
